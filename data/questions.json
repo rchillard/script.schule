@@ -1,4 +1,4 @@
 {
     "question": "How do you convert a NodeList to an Array?",
-    "answer": "Array.prototype.slice.call(NodeList);"
+    "answer": "Array.prototype.slice.call()"
 }

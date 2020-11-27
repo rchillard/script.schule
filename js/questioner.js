@@ -1,5 +1,6 @@
-var questionElement = document.querySelector('#questionBox');
-var answerElement = document.querySelector('#answerBox');
+var questionElement = document.getElementById('questionBox');
+var answerElement = document.getElementById('answerBox');
+var resultElement = document.getElementById('result');
 
 var questions;
 
@@ -16,5 +17,15 @@ fetch('https://script.schule/data/questions.json').then(function(response) {
     questionElement.textContent = questions.question;
 }).catch(function(err) {
     // err is the raw response
-    questionElement.textContent = `Error fetching question data: ${err}`;
+    questionElement.value = `Error fetching question data: ${err}`;
 })
+
+function checkAnswer() {
+    if (questions.answer === answerElement.value.trim()) {
+        console.log("Correct!");
+        resultElement.textContent = "Correct!";
+    } else {
+        console.log("False!");
+        resultElement.textContent = "Wrong!";
+    }
+}
