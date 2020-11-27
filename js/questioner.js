@@ -13,6 +13,7 @@ fetch('https://script.schule/data/questions.json').then(function(response) {
 }).then(function(data) {
     // data is the JSON response
     questions = data;
+    questionElement.textContent = questions.question;
 }).catch(function(err) {
     // err is the raw response
     questionElement.textContent = `Error fetching question data: ${err}`;
