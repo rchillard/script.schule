@@ -1,0 +1,8 @@
+{
+    "question": "How do you remove an element from the DOM?",
+    "answer": ".remove()",
+    "question": "How do you retrieve the parent node of a DOM element?",
+    "answer": ".parentNode",
+    "question": "How do you traverse up the DOM tree to find a matching element?",
+    "answer": ".closest(selector)",
+}
