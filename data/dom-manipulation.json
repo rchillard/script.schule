@@ -1,8 +1,22 @@
-{
-    "question": "How do you remove an element from the DOM?",
-    "answer": ".remove()",
-    "question": "How do you retrieve the parent node of a DOM element?",
-    "answer": ".parentNode",
-    "question": "How do you traverse up the DOM tree to find a matching element?",
-    "answer": ".closest(selector)",
-}
+[
+    {
+        "id": "001",
+        "question": "How do you remove an element from the DOM?",
+        "answer": ".remove()"
+    },
+    {
+        "id": "002",
+        "question": "How do you retrieve the parent node of a DOM element?",
+        "answer": ".parentNode"
+    },
+    {
+        "id": "003",
+        "question": "How do you traverse up the DOM tree to find a matching element?",
+        "answer": ".closest(selector)"
+    },
+    {
+        "id": "004",
+        "question": "How do you retrieve the next node from a given DOM element?",
+        "answer": ".nextSibling property returns the next node (not just elements), while the .nextElementSibling property returns only elements"
+    }
+]
