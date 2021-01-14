@@ -1,7 +1,7 @@
 [
     {
         "id": "001",
-        "question": "How do you remove an element from the DOM?",
+        "question": "How do you remove an Element from the DOM?",
         "answer": "Element.remove()",
         "code": "document.getElementById('logo').remove();",
         "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/remove"
@@ -15,7 +15,7 @@
     },
     {
         "id": "003",
-        "question": "How do you traverse up the DOM tree to find a matching element?",
+        "question": "How do you traverse up the DOM tree to find a matching element with a given selector?",
         "answer": "Element.closest(selector)",
         "code": "var closestElement = targetElement.closest(selectors);",
         "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest"
@@ -23,7 +23,7 @@
     {
         "id": "004",
         "question": "How do you retrieve the next node from a given DOM element?",
-        "answer": "Node.nextSibling property returns the next node (not just elements), while the Node.nextElementSibling property returns only elements",
+        "answer": "Node.nextSibling",
         "code": "next",
         "url": "https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling"
     }

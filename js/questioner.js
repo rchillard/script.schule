@@ -3,8 +3,9 @@ var answerElement = document.getElementById('answerBox');
 var resultElement = document.getElementById('result');
 
 var questions;
+var currentQuestion = 0;
 
-fetch('https://script.schule/data/questions.json').then(function(response) {
+fetch('https://script.schule/data/dom-manipulation.json').then(function(response) {
     // The API call was successful, so check if response is valid (200)
     if(response.ok) {
         return response.json();
@@ -14,18 +15,31 @@ fetch('https://script.schule/data/questions.json').then(function(response) {
 }).then(function(data) {
     // data is the JSON response
     questions = data;
-    questionElement.textContent = questions.question;
+    questionElement.textContent = questions[currentQuestion].question;
 }).catch(function(err) {
     // err is the raw response
     questionElement.value = `Error fetching question data: ${err}`;
 })
 
 function checkAnswer() {
-    if (questions.answer === answerElement.value.trim()) {
-        console.log("Correct!");
-        resultElement.textContent = "Correct!";
+    if (questions[currentQuestion].answer === answerElement.value.trim()) {
+        console.log(`Question ${currentQuestion}: Correct`);
+        resultElement.textContent = "Correct";
+        resultElement.classList.remove('hidden');
+        window.setTimeout(function() {
+            currentQuestion = currentQuestion + 1;
+            resultElement.classList.add('hidden');
+            questionElement.textContent = questions[currentQuestion].question;
+            answerElement.value = "";
+        }, 750);
     } else {
-        console.log("False!");
-        resultElement.textContent = "Wrong!";
+        console.log("Try Again");
+        resultElement.textContent = "Try Again";
+        resultElement.classList.remove('hidden');
+        window.setTimeout(function() { resultElement.classList.add('hidden') }, 500);
     }
+}
+
+function correctAnswer() {
+
 }
