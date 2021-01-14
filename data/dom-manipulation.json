@@ -2,21 +2,29 @@
     {
         "id": "001",
         "question": "How do you remove an element from the DOM?",
-        "answer": ".remove()"
+        "answer": "Element.remove()",
+        "code": "document.getElementById('logo').remove();",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/remove"
     },
     {
         "id": "002",
         "question": "How do you retrieve the parent node of a DOM element?",
-        "answer": ".parentNode"
+        "answer": "Node.parentNode",
+        "code": "var parentNode = node.parentNode;",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode"
     },
     {
         "id": "003",
         "question": "How do you traverse up the DOM tree to find a matching element?",
-        "answer": ".closest(selector)"
+        "answer": "Element.closest(selector)",
+        "code": "var closestElement = targetElement.closest(selectors);",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest"
     },
     {
         "id": "004",
         "question": "How do you retrieve the next node from a given DOM element?",
-        "answer": ".nextSibling property returns the next node (not just elements), while the .nextElementSibling property returns only elements"
+        "answer": "Node.nextSibling property returns the next node (not just elements), while the Node.nextElementSibling property returns only elements",
+        "code": "next",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling"
     }
 ]

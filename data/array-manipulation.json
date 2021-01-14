@@ -1,0 +1,16 @@
+[
+    {
+        "id": "001",
+        "question": "How do you convert a NodeList to an Array?",
+        "answer": "Array.prototype.slice.call()",
+        "code": "arr.slice([start[, end]])",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
+    },
+    {
+        "id": "002",
+        "question": "How do you find the index of an object in an Array?",
+        "answer": "Array.findIndex() accepts arr.findIndex(callback( element[, index[, array]] )[, thisArg])",
+        "code": "findindex",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex"
+    }
+]
