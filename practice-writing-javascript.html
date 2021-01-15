@@ -46,19 +46,21 @@
       </nav>
   </header>
   <main>
-    <h1>Learn</h1>
-    <p>This single page tutorial will some day teach you the basics of JavaScript in a minimalist and straightforward way.</p>
-    <p>Until it's ready, we highly recommend you checkout the following resources.</p>
-    <h2>For Beginners</h2>
+    <h1>Write JavaScript</h1>
+    <p>Follow along with the shadow teacher and you'll quickly start committing JavaScript to muscle memory.</p>
+    <h2>Question</h2>
+    <div id="questionBox"></div>
+    <h2>Your Answer<sup class="hidden" id="result"></sup></h2>
+    <textarea id="answerBox" cols="40" rows="5"></textarea>
     <p>
-      Chris Ferdinandi's <a href="https://vanillajsacademy.com/">Vanilla JavaScript Academy</a>.
-      You learn best by working at hands-on projects in a safe peer group where you can ask questions. Mr. Ferdinandi's program provides exactly that.
-      If you're serious about learning JavaScript, you should enroll in his next session!  
+        
     </p>
-    <h2>For Self-Learners</h2>
-    <p>Want to do a self-paced walkthrough of the language?  Checkout <a href="https://javascript.info/">The Modern JavaScript Tutorial</a>.</p>
-    <h2>For Knowledge Seekers</h2>
-    <p>Looking for reference?  It's hard to beat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla's JavaScript reference.</a></p>
+    <button id="previous">
+      Previous
+    </button>
+    <button id="next" onclick="checkAnswer();">
+      Submit Answer
+    </button>
   </main>
   <footer>
 
@@ -66,6 +68,11 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    var answerElement = document.getElementById('answerBox');
+    // var codeToLoad = 
+    // answerElement.textContent = 
+  </script>
 </body>
 
 </html>

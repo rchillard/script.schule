@@ -1,5 +1,5 @@
 // Chris Ferdinandi, GMT Newsletter, 2020-11-20
-// 
+
 var next = function (elem, selector) {
 
 	// Get the next element
