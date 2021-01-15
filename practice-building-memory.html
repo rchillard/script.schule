@@ -46,42 +46,21 @@
       </nav>
   </header>
   <main>
-    <h1>Practice</h1>
+    <h1>Test Your Memory</h1>
+    <p>Spaced repetition will help you remember.  Use this tool to test yourself!</p>
+    <h2>Question</h2>
+    <div id="questionBox"></div>
+    <h2>Your Answer<sup class="hidden" id="result"></sup></h2>
+    <textarea id="answerBox" cols="40" rows="5"></textarea>
     <p>
-      Learning to program is not about reading tutorials, watching videos, or listening to lectures.  You really learn to program by taking knowledge and appliyng it
-      through rigorous practice.  That means memorization coupled with real problem solving is retained via practice.
+        
     </p>
-    <hr>
-    <section>
-      <header>
-        <h2>Learn through Doing</h2>
-        <p>Three different ways to sharpen your JavaScript sword and retain your programming knowledge.</p>
-      </header>
-      <aside>
-        <img alt="programmer with flash cards whirling around their head" src="img/undraw_Memory_storage_reh0.svg" height="150">
-        <h3>Memorize Functions</h3>
-        <p>There's great power in raw knowledge.  Commit critical code to memory by playing our spaced repetition game.</p>
-        <p>
-          <a href="practice-building-memory.html"><em>Build Memory</em></a>
-        </p>
-      </aside>
-      <aside>
-        <img alt="programmer thinking about a problem" src="img/undraw_code_thinking_1jeh.svg" height="150">
-        <h3>Solve Hard Problems</h3>
-        <p>Critical thinking skills arise from solving real problems.  Grow through solving coding challenges.</p>
-        <p>
-          <a href="practice-building-memory.html"><em>Solve Problems</em></a>
-        </p>
-      </aside>
-      <aside>
-        <img alt="programming typing out code" src="img/undraw_coding_6mjf.svg" height="150">
-        <h3>Write Real Code</h3>
-        <p>Get in the flow by typing out code to common JavaScript functions, creating muscle memory.</p>
-        <p>
-          <a href="practice-building-memory.html"><em>Write Code</em></a>
-        </p>
-      </aside>
-    </section>
+    <button id="previous">
+      Previous
+    </button>
+    <button id="next" onclick="checkAnswer();">
+      Submit Answer
+    </button>
   </main>
   <footer>
 
@@ -89,6 +68,7 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/questioner.js"></script>
 </body>
 
 </html>
