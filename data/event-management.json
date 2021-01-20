@@ -1,0 +1,19 @@
+[
+    {
+        "id": "001",
+        "question": "How do you monitor what events are happening on a given Element?",
+        "answer": "monitorEvents(Element)",
+        "code": "monitorEvents(document.body)",
+        "url": "https://www.youtube.com/watch?v=DuIytlI63po"
+    },
+    {
+        "id": "002",
+        "question": "How do you stop monitoring events on a given Element?",
+        "answer": "unmonitorEvents(Element)",
+        "code": "unmonitorEvents(document.body, 'click')",
+        "url": "https://www.youtube.com/watch?v=DuIytlI63po"
+    },
+    {
+
+    }
+]

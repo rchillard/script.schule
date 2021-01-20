@@ -3,14 +3,35 @@
         "id": "001",
         "question": "How do you convert a NodeList to an Array?",
         "answer": "Array.prototype.slice.call()",
-        "code": "arr.slice([start[, end]])",
+        "code": "Array.slice([start[, end]])",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
     },
     {
         "id": "002",
-        "question": "How do you find the index of an object in an Array?",
-        "answer": "Array.findIndex() accepts arr.findIndex(callback( element[, index[, array]] )[, thisArg])",
-        "code": "findindex",
+        "question": "How do you find the index of an Object in an Array?",
+        "answer": "Array.findIndex()",
+        "code": "Array.findIndex(callback( element[, index[, array]] )[, thisArg])",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex"
-    }
+    },
+    {
+        "id": "003",
+        "question": "Given an Array of players, what method can you use to create a complete copy of the Array?",
+        "answer": "Array.slice()",
+        "code": "Array.slice([start[, end]])",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
+    },
+    {
+        "id": "004",
+        "question": "What Array method can you use to add, remove, and replace items?",
+        "answer": "Array.splice()",
+        "code": "let arrDeletedItems = arr.splice(start[, deleteCount[, item1[, item2[, ...]]]])",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice"
+    },
+    {
+        "id": "005",
+        "question": "?",
+        "answer": "",
+        "code": "",
+        "url": ""
+    },
 ]
