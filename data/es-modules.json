@@ -36,6 +36,13 @@
     },
     {
         "id": "006",
+        "question": "How do you export a default function called 'greet'?",
+        "answer": "export default greet;",
+        "code": "export default greet;",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"
+    },
+    {
+        "id": "007",
         "question": "",
         "answer": "",
         "code": "",
