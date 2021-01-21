@@ -1,0 +1,44 @@
+[
+    {
+        "id": "001",
+        "question": "How do you export a single function or variable in-line?",
+        "answer": "Add export operator before the variable or function expression",
+        "code": "export var greet = (name) => `Hello ${name}`;",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"
+    },
+    {
+        "id": "002",
+        "question": "How do you export multiple functions or variables at the end of a file?",
+        "answer": "export {function, variable};",
+        "code": "export {function, variable};",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"
+    },
+    {
+        "id": "003",
+        "question": "How do you import a single function named 'greet' from a file in the same directory named greetings.js?",
+        "answer": "import {greet} from './greetings.js';",
+        "code": "import {greet} from './greetings.js';",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"
+    },
+    {
+        "id": "004",
+        "question": "How do you import all of the exported functions from a file named 'greetings.js' in the same directory and assign them to a variable named salutation?",
+        "answer": "import * as salutation from './greetings.js';",
+        "code": "import * as salutation from './greetings.js';",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"
+    },
+    {
+        "id": "005",
+        "question": "Using the <script> tag, how do you import an ES module from the file 'greet.js'?",
+        "answer": "<script type='module' src='greet.js'></script>",
+        "code": "<script type='module' src='greet.js'></script>",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
+    },
+    {
+        "id": "006",
+        "question": "",
+        "answer": "",
+        "code": "",
+        "url": ""
+    }
+]

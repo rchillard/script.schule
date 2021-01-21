@@ -29,9 +29,23 @@
     },
     {
         "id": "005",
-        "question": "?",
-        "answer": "",
-        "code": "",
+        "question": "How do you change all the items in an Array to a fixed value?",
+        "answer": "Array.fill(value)",
+        "code": "arr.fill(value[, start[, end]])",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill"
+    },
+    {
+        "id": "006",
+        "question": "How do you create a new empty Array named arr containing values?",
+        "answer": "Array.fill(0)",
+        "code": "var arr = new Array(99).fill(0);",
         "url": ""
     },
+    {
+        "id": "007",
+        "question": "How do you determine if something is an Array?",
+        "answer": "Array.isArray()",
+        "code": "Array.isArray(arr)",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray"
+    }
 ]
