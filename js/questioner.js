@@ -1,6 +1,11 @@
 var questionElement = document.getElementById('questionBox');
 var answerElement = document.getElementById('answerBox');
 var resultElement = document.getElementById('result');
+var card = document.querySelector('.card');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('is-flipped');
+});
+
 
 var questions;
 var currentQuestion = 0;
@@ -16,6 +21,7 @@ fetch('https://script.schule/data/dom-manipulation.json').then(function(response
     // data is the JSON response
     questions = data;
     questionElement.textContent = questions[currentQuestion].question;
+    answerElement.textContent = questions[currentQuestion].answer;
 }).catch(function(err) {
     // err is the raw response
     questionElement.value = `Error fetching question data: ${err}`;
