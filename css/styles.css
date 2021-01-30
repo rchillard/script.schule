@@ -65,7 +65,17 @@ nav a img {
     display: none;
 }
 
-.selected {
-	background-color: #00449e;
+#easy:hover {
+	background-color: #118bee;
+	color: #fff;
+}
+
+#medium:hover {
+	background-color: darkslategray;
+	color: #fff;
+}
+
+#hard:hover {
+	background-color: #920de9;
 	color: #fff;
 }
