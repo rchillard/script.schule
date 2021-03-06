@@ -52,7 +52,7 @@ nav a img {
 .difficulty label {
     align-items: center;
 	display: inline-flex;
-	padding: 8px;
+	padding: 16px;
 }
 
 .difficulty label:last-child {
