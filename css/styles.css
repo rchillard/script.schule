@@ -4,31 +4,37 @@ nav a img {
 
 .scene {
 	height: 260px;
-    perspective: 600px;
-    width: 50%;
+	perspective: 1200px;
+	width: 80%;
 }
 
 .card {
-	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.5);
 	height: 100%;
 	position: relative;
 	transition: transform 1s;
 	transform-style: preserve-3d;
+	width: 100%;
 }
 
 .card__face {
-    align-items: center;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
+	align-items: center;
+	backface-visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
 }
 
 .card__face--front {
 	background: whitesmoke;
+}
+
+.card__face--front:hover {
+	background:  rgb(231, 231, 231);
+	cursor: pointer;
 }
 
 .card__face--back {
@@ -41,16 +47,16 @@ nav a img {
 }
 
 .difficulty {
-    bottom: 5px;
-    display: flex;
+	bottom: 5px;
+	display: flex;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
-    height: 32px;
-    position: absolute;
+	height: 32px;
+	position: absolute;
 }
 
 .difficulty label {
-    align-items: center;
+	align-items: center;
 	display: inline-flex;
 	padding: 16px;
 }
@@ -61,8 +67,8 @@ nav a img {
 
 .difficulty label input {
 	background-color: transparent;
-    color: #ccc;
-    display: none;
+	color: #ccc;
+	display: none;
 }
 
 #easy:hover {

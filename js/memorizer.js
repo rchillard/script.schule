@@ -51,8 +51,9 @@ for (var key of keys) {
 
 // Put in proper practice order for questionDeck
 // var sortedQuestions = elements.slice().sort((a,b) => b.date - a.date);
+// This either needs to become an Array (elements) or... we need a new design
 
-console.log(sortedQuestions);
+// console.log(sortedQuestions);
 // Load the first question
 var currentQuestion = {};
 
@@ -79,7 +80,7 @@ card.addEventListener('click', function () {
 
 difficulty.addEventListener('click', function (event) {
     var nextTestDate = new Date();
-    
+
     if (event.target.id === "easy") {
         console.log("Easy!");
         // Assign next time this question comes up
@@ -103,6 +104,10 @@ difficulty.addEventListener('click', function (event) {
 
     // Save result to localStorage
     localStorage.setItem(question.textContent, recordedDifficulty);
+
+    // Load next question
+    
+    // Reset UI
 })
 
 
