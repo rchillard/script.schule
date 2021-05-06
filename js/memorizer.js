@@ -6,73 +6,83 @@
 // Hard         1 day
 
 // Elements on page
-var question = document.querySelector('#questionBox');
-var answer = document.querySelector('#answerBox');
 var card = document.querySelector('.card');
+var question = document.querySelector('#questionBox');
 var difficulty = document.querySelector('.difficulty');
+var answer = document.querySelector('#answerBox');
+var questionCounter = 0;
 
 // Retrieve list of all elements
-var elements = {
-    "abbr": "",
-    "div": "",
-    "label": ""
-};
+var elements = [];
+var sortedQuestions = [];
+// var elements = {
+//     "abbr": "",
+//     "div": "",
+//     "label": ""
+// };
 
-// fetch('https://html.haus/api/index.json').then(function (response) {
-//     // The API call was successful, so check if response is valid (200)
-//     if (response.ok) {
-//         return response.json();
-//     } else {
-//         return Promise.reject(response);
-//     }
-// }).then(function (data) {
-//     // data is the JSON response
-//     elements = data;
-//     console.log(elements);
-// }).catch(function (err) {
-//     // err is the raw response
-//     console.warn(`Error fetching question data: ${err}`);
-// })
+async function loadQuestions(url) {
+    const response = await fetch(url).then(function (response) {
+        // The API call was successful, so check if response is valid (200)
+        if (response.ok) {
+            return response.json();
+        } else {
+            return Promise.reject(response);
+        }
+    }).then(function (data) {
+        // data is the JSON response
+        return data;
+    }).catch(function (err) {
+        // err is the raw response
+        console.warn(`Error fetching question data: ${err}`);
+    })
 
-// Load local storage version
-var keys = Object.keys(localStorage);
-console.log(keys);
-for (var key of keys) {
-    // If this element exists in the elements object
-    console.log(key);
-    if (elements.hasOwnProperty(key)) {
-        console.log(elements.key);
-        // Assign the next date as the value for this key
-        elements[key] = localStorage.getItem(key);
+    const elements = await response.elements;
+
+    var questionDeck = [];
+    // Loop through all the elements and add to questionDeck as objects, checking if localStorage value exists
+    for (var element of elements) {
+        var nextTestDate = localStorage.getItem(element) ? new Date(localStorage.getItem(element)) : new Date();
+        questionDeck.push({ "element": element, "date": nextTestDate });
     }
-    console.log(`${key}: ${localStorage.getItem(key)}`);
-    console.log(elements.key);
+    // console.log(questionDeck);
+
+
+    // Put in proper practice order for questionDeck, ordering by soonest nextTestDate
+    sortedQuestions = questionDeck.slice().sort((a, b) => a.date - b.date);
+    // console.log(sortedQuestions);
+    return sortedQuestions;
 }
 
-// Put in proper practice order for questionDeck
-// var sortedQuestions = elements.slice().sort((a,b) => b.date - a.date);
-// This either needs to become an Array (elements) or... we need a new design
+loadQuestions('https://html.haus/api/index.json').then(sortedQuestions => {
+    console.log(sortedQuestions[0].element);
+    var elementToQuery = sortedQuestions[0].element;
+    console.log(elementToQuery);
 
-// console.log(sortedQuestions);
-// Load the first question
-var currentQuestion = {};
+    // Load the first question
+    renderNextQuestion();
+});
 
-fetch('https://html.haus/api/elements/label.json').then(function (response) {
-    // The API call was successful, so check if response is valid (200)
-    if (response.ok) {
-        return response.json();
-    } else {
-        return Promise.reject(response);
-    }
-}).then(function (data) {
-    // data is the JSON response
-    currentQuestion = data;
-    question.textContent = currentQuestion.name;
-    answer.textContent = currentQuestion.description;
-}).catch(function (err) {
-    // err is the raw response
-    console.warn(`Error fetching question data: ${err}`);
-})
+async function renderNextQuestion() {
+    var elementQuery = sortedQuestions[questionCounter].element;
+    fetch(`https://html.haus/api/elements/${elementQuery}.json`).then(function (response) {
+        // The API call was successful, so check if response is valid (200)
+        if (response.ok) {
+            return response.json();
+        } else {
+            return Promise.reject(response);
+        }
+    }).then(function (data) {
+        // data is the JSON response
+        currentQuestion = data;
+        question.textContent = currentQuestion.name;
+        answer.textContent = currentQuestion.description;
+        questionCounter = questionCounter + 1;
+    }).catch(function (err) {
+        // err is the raw response
+        console.warn(`Error fetching question data: ${err}`);
+    })
+}
 
 card.addEventListener('click', function () {
     card.classList.toggle('is-flipped');
@@ -105,9 +115,12 @@ difficulty.addEventListener('click', function (event) {
     // Save result to localStorage
     localStorage.setItem(question.textContent, recordedDifficulty);
 
-    // Load next question
-    
     // Reset UI
+    console.log("Flipping card!")
+    card.classList.toggle('is-flipped');
+
+    // Load next question
+    renderNextQuestion();
 })
 
 
