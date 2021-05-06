@@ -27,49 +27,48 @@
 <body>
   <header>
     <nav>
-        <a href="index.html">
-          Script<img alt="school backpack" src="img/schule-backpack.png" height="25">
-        </a>
-        <ul>
-          <li><a href="learn.html">Learn</a></li>
-          <li>
-            <a href="practice.html">Practice</a>
-            <ul>
-              <li>Building Memory</li>
-              <li>Solving Problems</li>
-              <li>Writing JavaScript</li>
-            </ul>
-          </li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="snippets.html">Snippets</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
+      <a href="index.html">
+        Script<img alt="school backpack" src="img/schule-backpack.png" height="25">
+      </a>
+      <ul>
+        <li><a href="learn.html">Learn</a></li>
+        <li>
+          <a href="practice.html">Practice</a>
+          <ul>
+            <li>Building Memory</li>
+            <li>Solving Problems</li>
+            <li>Writing JavaScript</li>
+          </ul>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="snippets.html">Snippets</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
-    <h1>Test Your Memory</h1>
-    <p>Spaced repetition will help you remember.  Use this tool to test yourself!</p>
-    <h2>Question</h2>
-    <div id="questionBox"></div>
-    <h2>Your Answer<sup class="hidden" id="result"></sup></h2>
-    <textarea id="answerBox" cols="40" rows="5"></textarea>
-    <p>
-        
-    </p>
-    <button id="previous">
-      Previous
-    </button>
-    <button id="next" onclick="checkAnswer();">
-      Submit Answer
-    </button>
+    <h1>Practice Building Memory</h1>
+    <p>Spaced repetition will help you remember. Use this tool to test yourself!</p>
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front" id="questionBox">Loading...</div>
+        <div class="card__face card__face--back">
+          <span id="answerBox"></span>
+          <div class="difficulty">
+            <label id="easy"><input type="radio" />Easy</label>
+            <label id="medium"><input type="radio" />Medium</label>
+            <label id="hard"><input type="radio" />Hard</label>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
 
   </footer>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <!-- <script src="js/vendor/modernizr-3.11.2.min.js"></script> -->
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/questioner.js"></script>
+  <script src="js/memorizer.js"></script>
 </body>
 
 </html>
