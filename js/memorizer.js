@@ -10,16 +10,11 @@ var card = document.querySelector('.card');
 var question = document.querySelector('#questionBox');
 var difficulty = document.querySelector('.difficulty');
 var answer = document.querySelector('#answerBox');
-var questionCounter = 0;
 
-// Retrieve list of all elements
+// Elements are a raw index, sortedQuestions an Array of objects, questionCounter tracks progress
 var elements = [];
 var sortedQuestions = [];
-// var elements = {
-//     "abbr": "",
-//     "div": "",
-//     "label": ""
-// };
+var questionCounter = 0;
 
 async function loadQuestions(url) {
     const response = await fetch(url).then(function (response) {
@@ -55,10 +50,6 @@ async function loadQuestions(url) {
 }
 
 loadQuestions('https://html.haus/api/index.json').then(sortedQuestions => {
-    console.log(sortedQuestions[0].element);
-    var elementToQuery = sortedQuestions[0].element;
-    console.log(elementToQuery);
-
     // Load the first question
     renderNextQuestion();
 });
@@ -84,44 +75,72 @@ async function renderNextQuestion() {
     })
 }
 
-card.addEventListener('click', function () {
-    card.classList.toggle('is-flipped');
-});
+// Use event delegation to capture click events properly
+var clickHandler = function (event) {
+    event.preventDefault();
 
-difficulty.addEventListener('click', function (event) {
-    var nextTestDate = new Date();
+    if (event.target.closest('.difficulty')) {
+        card.classList.remove('is-flipped');
 
-    if (event.target.id === "easy") {
-        console.log("Easy!");
-        // Assign next time this question comes up
-        nextTestDate.setDate(nextTestDate.getDate() + 7)
-        recordedDifficulty = nextTestDate;
+        var difficulty;
+        switch (event.target.id) {
+            case "easy":
+                difficulty = 7
+                break;
+            case "medium":
+                difficulty = 3;
+                break;
+            case "hard":
+                difficulty = 1;
+                break;
+        }
+
+        var nextTestDate = new Date();
+        nextTestDate.setDate(nextTestDate.getDate() + difficulty)
+        localStorage.setItem(question.textContent, nextTestDate)
+        setTimeout(() => { renderNextQuestion(); }, 250);
+        return;
     }
 
-    if (event.target.id === "medium") {
-        console.log("Medium!");
-        // Assign next time this question comes up
-        nextTestDate.setDate(nextTestDate.getDate() + 3)
-        recordedDifficulty = nextTestDate;
+    if (event.target.closest('.card')) {
+        card.classList.toggle('is-flipped');
     }
+}
 
-    if (event.target.id === "hard") {
-        console.log("Hard!");
-        // Assign next time this question comes up
-        nextTestDate.setDate(nextTestDate.getDate() + 1)
-        recordedDifficulty = nextTestDate;
-    }
+document.addEventListener('click', clickHandler, true);
 
-    // Save result to localStorage
-    localStorage.setItem(question.textContent, recordedDifficulty);
+// difficulty.addEventListener('click', function (event) {
+//     var nextTestDate = new Date();
 
-    // Reset UI
-    console.log("Flipping card!")
-    card.classList.toggle('is-flipped');
+//     if (event.target.id === "easy") {
+//         console.log("Easy!");
+//         // Assign next time this question comes up
+//         nextTestDate.setDate(nextTestDate.getDate() + 7)
+//         recordedDifficulty = nextTestDate;
+//     }
 
-    // Load next question
-    renderNextQuestion();
-})
+//     if (event.target.id === "medium") {
+//         console.log("Medium!");
+//         // Assign next time this question comes up
+//         nextTestDate.setDate(nextTestDate.getDate() + 3)
+//         recordedDifficulty = nextTestDate;
+//     }
 
+//     if (event.target.id === "hard") {
+//         console.log("Hard!");
+//         // Assign next time this question comes up
+//         nextTestDate.setDate(nextTestDate.getDate() + 1)
+//         recordedDifficulty = nextTestDate;
+//     }
 
+//     // Save result to localStorage
+//     localStorage.setItem(question.textContent, recordedDifficulty);
+
+//     // Reset UI
+//     console.log("difficulty cardFlip!")
+//     card.classList.toggle('is-flipped');
+
+//     // Load next question
+//     renderNextQuestion();
+// })
 
